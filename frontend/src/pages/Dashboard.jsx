@@ -108,8 +108,14 @@ const Dashboard = () => {
                     {user?.email}
                   </p>
                 </div>
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-sage-50 border border-sage-100">
+                  <div className="w-2 h-2 rounded-full bg-sage-500 animate-pulse-soft" />
+                  <span className="text-sage-700 text-sm font-display font-semibold">
+                    All systems online
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
           </div>
 
           {/* Stats */}

@@ -105,9 +105,6 @@ const Login = () => {
           </p>
         </div>
 
-        <p className="text-center mt-5 text-[11px] text-ink-400 font-mono tracking-widest">
-          SECURED WITH JWT + BCRYPT
-        </p>
       </div>
     </div>
   );
