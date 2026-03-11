@@ -3,54 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProfile } from "../features/auth/authSlice.js";
 import Navbar from "../components/Navbar.jsx";
 
-const StatCard = ({
-  icon,
-  label,
-  value,
-  sub,
-  accent = "indigo",
-  delay = "",
-}) => {
-  const map = {
-    indigo: {
-      ring: "bg-indigo-50 border-indigo-100",
-      icon: "text-indigo-600",
-      bar: "bg-indigo-500",
-    },
-    sage: {
-      ring: "bg-sage-50   border-sage-100",
-      icon: "text-sage-600",
-      bar: "bg-sage-500",
-    },
-    amber: {
-      ring: "bg-amber-50  border-amber-100",
-      icon: "text-amber-600",
-      bar: "bg-amber-500",
-    },
-  };
-  const a = map[accent];
-
-  return (
-    <div className={`stat-card opacity-0-init animate-fade-up ${delay}`}>
-      <div
-        className={`w-10 h-10 rounded-xl border ${a.ring} flex items-center justify-center mb-4`}
-      >
-        <span className={`${a.icon} text-lg`}>{icon}</span>
-      </div>
-      <p className="text-2xl font-display font-bold text-ink-900 tracking-tight leading-none">
-        {value}
-      </p>
-      <p className="text-sm font-display font-semibold text-ink-600 mt-2">
-        {label}
-      </p>
-      {sub && <p className="text-xs text-ink-400 font-body mt-0.5">{sub}</p>}
-      <div className={`mt-4 h-0.5 w-full rounded-full bg-canvas-200`}>
-        <div className={`h-0.5 rounded-full ${a.bar} w-3/4`} />
-      </div>
-    </div>
-  );
-};
-
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { user, isLoading } = useSelector((s) => s.auth);
@@ -108,44 +60,9 @@ const Dashboard = () => {
                     {user?.email}
                   </p>
                 </div>
-                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-sage-50 border border-sage-100">
-                  <div className="w-2 h-2 rounded-full bg-sage-500 animate-pulse-soft" />
-                  <span className="text-sage-700 text-sm font-display font-semibold">
-                    All systems online
-                  </span>
-                </div>
               </div>
             </div>
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-            <StatCard
-              icon="◈"
-              label="Account ID"
-              value={accountId}
-              sub="Unique identifier"
-              accent="indigo"
-              delay="delay-100"
-            />
-            <StatCard
-              icon="⬡"
-              label="Status"
-              value="Active"
-              sub="Account in good standing"
-              accent="sage"
-              delay="delay-200"
-            />
-            <StatCard
-              icon="◎"
-              label="Member Since"
-              value={memberSince}
-              sub="Account created"
-              accent="amber"
-              delay="delay-300"
-            />
-          </div>
-
           {/* Content grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Activity log */}
